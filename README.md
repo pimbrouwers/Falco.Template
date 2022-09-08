@@ -1,4 +1,4 @@
-# Falco Templates
+# Falco Template
 
 [![NuGet Version](https://img.shields.io/nuget/v/Falco.Template.svg)](https://www.nuget.org/packages/Falco.Template)
 [![Build Status](https://travis-ci.org/pimbrouwers/Falco.svg?branch=master)](https://travis-ci.org/pimbrouwers/Falco)
