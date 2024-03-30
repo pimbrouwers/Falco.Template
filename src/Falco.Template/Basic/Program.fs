@@ -1,14 +1,16 @@
 module AppName.Program
 
 open Falco
-open Falco.Routing
-open Falco.HostBuilder
+open Microsoft.AspNetCore.Builder 
 
 [<EntryPoint>]
 let main args =
-    webHost args {
-        endpoints [
-            get "/" (Response.ofPlainText "Hello world")
-        ]
-    }
+    let bldr = WebApplication.CreateBuilder(args)
+    let wapp = bldr.Build()
+    
+    wapp.Use(DeveloperExceptionPageExtensions.UseDeveloperExceptionPage)
+        .UseFalco()
+        .FalcoGet("/", Response.ofPlainText "Hello World")
+        .FalcoNotFound(Response.withStatusCode 404 >> Response.ofEmpty)
+        .Run()
     0
